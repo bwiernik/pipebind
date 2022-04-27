@@ -20,7 +20,7 @@ The results of the expression, evaluated using the piped object.
 }
 \description{
 The base R \code{\link[base:pipeOp]{|>}} pipe lacks some advanced
-functionality compared to the \emph{magrittr} \code{\link[magrittr:\%>\%]{\%>\%}}
+functionality compared to the \emph{magrittr} \code{\href{https://magrittr.tidyverse.org/reference/pipe.html}{\%>\%}}
 pipe. For example, the piped object can only appear once on the right-hand
 side of the pipe (either as the first argument or elsewhere using the \code{_}
 placeholder in R 4.2.0 and later), and the \code{_} placeholder cannot appear
