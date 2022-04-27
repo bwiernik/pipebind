@@ -6,7 +6,7 @@ Authors@R: person(
     given = "Brenton M.", 
     family = "Wiernik",
     email = "brenton@wiernik.org", 
-    role = "aut",
+    role = "cre",
     comment = c(ORCID = "0000-0001-9560-6336", Twitter = "@bmwiernik")
   )
 Maintainer: Brenton M. Wiernik <brenton@wiernik.org>
