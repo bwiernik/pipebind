@@ -2,7 +2,7 @@ Package: pipebind
 Type: Package
 Title: Flexible Binding for Complex Function Evaluation with the Base R |> Pipe
 Version: 0.1.0
-Author: person("Brenton M.", "Wiernik", , "brenton@wiernik.org", role = "aut",
+Authors@R: person("Brenton M.", "Wiernik", , "brenton@wiernik.org", role = "aut",
            comment = c(ORCID = "0000-0001-9560-6336", Twitter = "@bmwiernik"))
 Maintainer: Brenton M. Wiernik <brenton@wiernik.org>
 Description: Provides a simple function to bind a piped object to a placeholder
