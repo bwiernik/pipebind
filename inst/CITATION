@@ -1,6 +1,6 @@
 citHeader("To cite pipebind in publications use:")
 
-bibEntry(
+bibentry(
   bibtype  = "Manual",
   title    = "pipebind: Flexible Binding for Complex Function Evaluation with the Base R |> Pipe",
   author   = person("Brenton M.", "Wiernik"),

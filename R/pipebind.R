@@ -1,7 +1,8 @@
 #' Bind a (piped) object to a symbol for complex function evaluation
 #'
 #' The base R \code{\link[base:pipeOp]{|>}} pipe lacks some advanced
-#' functionality compared to the *magrittr* \code{\href{https://magrittr.tidyverse.org/reference/pipe.html}{%>%}}
+#' functionality compared to the
+#' \href{https://magrittr.tidyverse.org/reference/pipe.html}{\emph{magrittr} \code{%>%}}
 #' pipe. For example, the piped object can only appear once on the right-hand
 #' side of the pipe (either as the first argument or elsewhere using the \code{_}
 #' placeholder in R 4.2.0 and later), and the \code{_} placeholder cannot appear
