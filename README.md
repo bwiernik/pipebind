@@ -24,7 +24,7 @@ expression.
 You can install the development version of *pipebind* like so:
 
 ``` r
-remotes::install_github("bwiernik/pipe)
+remotes::install_github("bwiernik/pipebind")
 ```
 
 ## Example
