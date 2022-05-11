@@ -34,26 +34,34 @@ This is a basic example which shows you how to solve a common problem:
 ``` r
 library(pipebind)
 
-if (getRversion() >= 4.1) {
-  set.seed(2016)
-  
-  # Piping to a non-first argument
-  mtcars |>
-    transform(kmL = mpg / 2.35) |>
-    bind(d, lm(kmL ~ hp, data = d))
-  
-  # Using the piped value multiple times
-  rnorm(10) |>
-    bind(x, x - mean(x))
-  
-  # Using the piped value in multiple arguments
-  c(a = 1, b = 2, c = 3) |>
-    bind(x, paste(names(x), x, sep = " = "))
-  
-  # Subsetting the piped value
-  mtcars |>
-    bind(d, d$mpg)
-}
+set.seed(2016)
+
+# Piping to a non-first argument
+mtcars |>
+  transform(kmL = mpg / 2.35) |>
+  bind(d, lm(kmL ~ hp, data = d))
+#> 
+#> Call:
+#> lm(formula = kmL ~ hp, data = d)
+#> 
+#> Coefficients:
+#> (Intercept)           hp  
+#>    12.80803     -0.02903
+
+# Using the piped value multiple times
+rnorm(10) |>
+  bind(x, x - mean(x))
+#>  [1] -0.55014875  1.36584095  0.30817018  0.66123825 -2.42687776  0.08185269
+#>  [7] -0.39891573 -0.32041684  0.73166705  0.54758995
+
+# Using the piped value in multiple arguments
+c(a = 1, b = 2, c = 3) |>
+  bind(x, paste(names(x), x, sep = " = "))
+#> [1] "a = 1" "b = 2" "c = 3"
+
+# Subsetting the piped value
+mtcars |>
+  bind(d, d$mpg)
 #>  [1] 21.0 21.0 22.8 21.4 18.7 18.1 14.3 24.4 22.8 19.2 17.8 16.4 17.3 15.2 10.4
 #> [16] 10.4 14.7 32.4 30.4 33.9 21.5 15.5 15.2 13.3 19.2 27.3 26.0 30.4 15.8 19.7
 #> [31] 15.0 21.4

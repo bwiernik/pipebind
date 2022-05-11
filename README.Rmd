@@ -46,26 +46,24 @@ This is a basic example which shows you how to solve a common problem:
 ```{r example}
 library(pipebind)
 
-if (getRversion() >= 4.1) {
-  set.seed(2016)
-  
-  # Piping to a non-first argument
-  mtcars |>
-    transform(kmL = mpg / 2.35) |>
-    bind(d, lm(kmL ~ hp, data = d))
-  
-  # Using the piped value multiple times
-  rnorm(10) |>
-    bind(x, x - mean(x))
-  
-  # Using the piped value in multiple arguments
-  c(a = 1, b = 2, c = 3) |>
-    bind(x, paste(names(x), x, sep = " = "))
-  
-  # Subsetting the piped value
-  mtcars |>
-    bind(d, d$mpg)
-}
+set.seed(2016)
+
+# Piping to a non-first argument
+mtcars |>
+  transform(kmL = mpg / 2.35) |>
+  bind(d, lm(kmL ~ hp, data = d))
+
+# Using the piped value multiple times
+rnorm(10) |>
+  bind(x, x - mean(x))
+
+# Using the piped value in multiple arguments
+c(a = 1, b = 2, c = 3) |>
+  bind(x, paste(names(x), x, sep = " = "))
+
+# Subsetting the piped value
+mtcars |>
+  bind(d, d$mpg)
 ```
 
 
