@@ -56,3 +56,7 @@ bind <- function(.pipeValue, .pipeBind, ...) {
   )
   .pipeFunction(.pipeValue)
 }
+
+#' @rdname bind
+#' @export
+assign("\u03bb", bind)
