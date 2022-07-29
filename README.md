@@ -7,7 +7,7 @@
 <!-- badges: end -->
 
 The base R `|>` pipe lacks some advanced functionality compared to the
-*magrittr* `%>%` pipe. For example, the piped object can only appear
+`{magrittr}` `%>%` pipe. For example, the piped object can only appear
 once on the right-hand side of the pipe (either as the first argument or
 elsewhere using the `_` placeholder), and the `_` placeholder cannot
 appear on the left side of sub-setting functions like `$`, `[`, `[[`, or
@@ -21,7 +21,13 @@ expression.
 
 ## Installation
 
-You can install the development version of *pipebind* like so:
+You can install `{pipebind}` from CRAN:
+
+``` r
+install.packages("pipebind")
+```
+
+You can install the development version of `{pipebind}` like so:
 
 ``` r
 remotes::install_github("bwiernik/pipebind")
