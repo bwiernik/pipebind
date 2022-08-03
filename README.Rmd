@@ -20,7 +20,7 @@ knitr::opts_chunk$set(
 
 The base R `|>` pipe lacks some advanced functionality compared
 to the `{magrittr}` `%>%` pipe. For example, the piped object can
-only appear once on the right-hand side of the pipe (either as the first
+only appear once on the right-hand side of the pipe (either as the first unnamed
 argument or elsewhere using the `_` placeholder), and the `_` placeholder
 cannot appear on the left side of sub-setting functions like `$`, `[`, `[[`,
 or `@`.

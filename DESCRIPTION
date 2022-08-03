@@ -19,4 +19,4 @@ LazyData: true
 URL: https://github.com/bwiernik/pipebind/
 BugReports: https://github.com/bwiernik/pipebind/issues
 Roxygen: list(markdown = TRUE)
-RoxygenNote: 7.1.2
+RoxygenNote: 7.2.0

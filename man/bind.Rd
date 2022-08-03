@@ -2,9 +2,12 @@
 % Please edit documentation in R/pipebind.R
 \name{bind}
 \alias{bind}
+\alias{λ}
 \title{Bind a (piped) object to a symbol for complex function evaluation}
 \usage{
 bind(.pipeValue, .pipeBind, ...)
+
+\if{html,text}{λ(.pipeValue, .pipeBind, ...)}
 }
 \arguments{
 \item{.pipeValue}{The object to bind. Typically specified by pipe into the
@@ -23,11 +26,10 @@ The base R \code{\link[base:pipeOp]{|>}} pipe lacks some advanced
 functionality compared to the
 \href{https://magrittr.tidyverse.org/reference/pipe.html}{\emph{magrittr} \code{\%>\%}}
 pipe. For example, the piped object can only appear once on the right-hand
-side of the pipe (either as the first argument or elsewhere using the \code{_}
-placeholder in R 4.2.0 and later), and the \code{_} placeholder cannot appear
-on the left side of sub-setting functions like \code{$}, \code{[}, \code{[[}, or \code{@}.
-}
-\details{
+side of the pipe (either as the first unnamed argument or elsewhere using the
+\code{_} placeholder in R 4.2.0 and later), and the \code{_} placeholder cannot
+appear on the left side of sub-setting functions like \code{$}, \code{[}, \code{[[}, or \code{@}.
+
 The \code{bind()} function is a way to conveniently circumvent these limitations.
 Pipe an object into \code{bind()}, choose a placeholder symbol to represent it,
 then use this placeholder to refer the piped object in any way and as many

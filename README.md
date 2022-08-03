@@ -8,10 +8,10 @@
 
 The base R `|>` pipe lacks some advanced functionality compared to the
 `{magrittr}` `%>%` pipe. For example, the piped object can only appear
-once on the right-hand side of the pipe (either as the first argument or
-elsewhere using the `_` placeholder), and the `_` placeholder cannot
-appear on the left side of sub-setting functions like `$`, `[`, `[[`, or
-`@`.
+once on the right-hand side of the pipe (either as the first unnamed
+argument or elsewhere using the `_` placeholder), and the `_`
+placeholder cannot appear on the left side of sub-setting functions like
+`$`, `[`, `[[`, or `@`.
 
 This package provides a `bind()` function as a way to conveniently
 circumvent these limitations. Pipe an object into `bind()`, choose a
