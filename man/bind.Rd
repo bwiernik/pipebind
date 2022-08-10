@@ -2,15 +2,14 @@
 % Please edit documentation in R/pipebind.R
 \name{bind}
 \alias{bind}
-\alias{λ}
+\alias{lambda}
+\alias{pipebind}
 \title{Bind a (piped) object to a symbol for complex function evaluation}
 \usage{
 bind(.pipeValue, .pipeBind, ...)
-
-\if{html,text}{λ(.pipeValue, .pipeBind, ...)}
 }
 \arguments{
-\item{.pipeValue}{The object to bind. Typically specified by pipe into the
+\item{.pipeValue}{The object to bind. Typically specified by piping into the
 \code{bind()} function (e.g., \code{x |> bind()}).}
 
 \item{.pipeBind}{The placeholder symbol to use to represent the piped object.
@@ -22,18 +21,22 @@ Can be any valid R object name.}
 The results of the expression, evaluated using the piped object.
 }
 \description{
-The base R \code{\link[base:pipeOp]{|>}} pipe lacks some advanced
-functionality compared to the
-\href{https://magrittr.tidyverse.org/reference/pipe.html}{\emph{magrittr} \code{\%>\%}}
-pipe. For example, the piped object can only appear once on the right-hand
+The \link[base:pipeOp]{base R} \code{\link[base:pipeOp]{|>}} \link[base:pipeOp]{pipe}
+lacks some advanced functionality compared to the
+\href{https://magrittr.tidyverse.org/reference/pipe.html}{\code{{magrittr}} \verb{\%>\%} pipe}.
+For example, the piped object can only appear once on the right-hand
 side of the pipe (either as the first unnamed argument or elsewhere using the
-\code{_} placeholder in R 4.2.0 and later), and the \code{_} placeholder cannot
+\verb{_} placeholder in R 4.2.0 and later), and the \verb{_} placeholder cannot
 appear on the left side of sub-setting functions like \code{$}, \code{[}, \code{[[}, or \code{@}.
 
 The \code{bind()} function is a way to conveniently circumvent these limitations.
 Pipe an object into \code{bind()}, choose a placeholder symbol to represent it,
 then use this placeholder to refer the piped object in any way and as many
 times as desired in an R expression.
+
+The Greek letter
+\ifelse{latex}{\out{$\lambda$}\code{()}}{\ifelse{html}{\out{&lambda;}\code{()}}{λ()}}
+is available as an alias for \code{bind()}.
 }
 \examples{
 if (getRversion() >= 4.1) {
