@@ -32,12 +32,12 @@
 #' \code{is_less_than}       \tab \code{`<`}      \cr
 #' \code{is_weakly_less_than}    \tab \code{`<=`} \cr
 #' \code{not} (\code{`n'est pas`})  \tab \code{`!`} \cr
-#' \code{define_colnames}       \tab \code{`colnames<-`} \cr
-#' \code{define_rownames}       \tab \code{`rownames<-`} \cr
-#' \code{define_names}          \tab \code{`names<-`} \cr
-#' \code{define_class}          \tab \code{`class<-`} \cr
-#' \code{define_attributes}     \tab \code{`attributes<-`} \cr
-#' \code{define_attr }          \tab \code{`attr<-`} \cr
+#' \code{assign_colnames}       \tab \code{`colnames<-`} \cr
+#' \code{assign_rownames}       \tab \code{`rownames<-`} \cr
+#' \code{assign_names}          \tab \code{`names<-`} \cr
+#' \code{assign_class}          \tab \code{`class<-`} \cr
+#' \code{assign_attributes}     \tab \code{`attributes<-`} \cr
+#' \code{assign_attr }          \tab \code{`attr<-`} \cr
 #' }
 #'
 #' @note
@@ -58,7 +58,7 @@
 #'    matrix_multiply(seq(10, 100, by = 10))
 #'
 #' data.frame(1:10, letters[1:10]) |>
-#'   define_names(c("numbers", "letters"))
+#'   assign_names(c("numbers", "letters"))
 #' good.times$quarter <-
 #'   good.times %>%
 #'   use_series(timestamp) %>%
@@ -178,88 +178,88 @@ not <- `!`
 #' @rdname aliases
 #' @usage NULL
 #' @export
-define_colnames <- `colnames<-`
+assign_colnames <- `colnames<-`
 
 #' @rdname aliases
 #' @usage NULL
 #' @export
-define_rownames <- `rownames<-`
+assign_rownames <- `rownames<-`
 
 #' @rdname aliases
 #' @usage NULL
 #' @export
-define_names <- `names<-`
+assign_names <- `names<-`
 
 #' @rdname aliases
 #' @usage NULL
 #' @export
-define_class <- `class<-`
+assign_class <- `class<-`
 
 #' @rdname aliases
 #' @usage NULL
 #' @export
 inset <-
-  define_bracket <-
+  assign_bracket <-
   `[<-`
 
 #' @rdname aliases
 #' @usage NULL
 #' @export
 double_inset <-
-  define_double_bracket <-
+  assign_double_bracket <-
   `[[<-`
 
 #' @rdname aliases
 #' @usage NULL
 #' @export
-define_attr <- `attr<-`
+assign_attr <- `attr<-`
 
 #' @rdname aliases
 #' @usage NULL
 #' @export
-define_attributes <- `attributes<-`
+assign_attributes <- `attributes<-`
 
 #' @rdname aliases
 #' @usage NULL
 #' @export
-define_levels <- `levels<-`
+assign_levels <- `levels<-`
 
 #' @rdname aliases
 #' @usage NULL
 #' @export
-define_contrasts <- `contrasts<-`
+assign_contrasts <- `contrasts<-`
 
 #' @rdname aliases
 #' @usage NULL
 #' @export
-define_dimnames <- `dimnames<-`
+assign_dimnames <- `dimnames<-`
 
 #' @rdname aliases
 #' @usage NULL
 #' @export
-define_as_missing <- `is.na<-`
+assign_as_missing <- `is.na<-`
 
 #' @rdname aliases
 #' @usage NULL
 #' @export
-define_units <- `units<-`
+assign_units <- `units<-`
 
 #' @rdname aliases
 #' @usage NULL
 #' @export
-define_comment <- `comment<-`
+assign_comment <- `comment<-`
 
 #' @rdname aliases
 #' @usage NULL
 #' @export
-define_diag <- `diag<-`
+assign_diag <- `diag<-`
 
 #' @rdname aliases
 #' @usage NULL
 #' @export
-define_dim <- `dim<-`
+assign_dim <- `dim<-`
 
 #' @rdname aliases
 #' @usage NULL
 #' @export
-define_length <- `length<-`
+assign_length <- `length<-`
