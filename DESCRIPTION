@@ -1,7 +1,7 @@
 Package: pipebind
 Type: Package
 Title: Flexible Binding for Complex Function Evaluation with the Base R |> Pipe
-Version: 0.1.2
+Version: 0.1.2.0001
 Authors@R: person(
     given = "Brenton M.",
     family = "Wiernik",

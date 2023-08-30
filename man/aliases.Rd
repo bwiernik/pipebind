@@ -57,7 +57,7 @@ Currently implemented aliases are
 \code{bracket}                   \tab    \code{`[`}            \cr
 \code{double_bracket}            \tab    \code{`[[`}           \cr
 \code{assign_bracket}            \tab    \code{`[<-`}          \cr
-\code{assign_double_bracket}     \tab    \code{`[<-`}          \cr
+\code{assign_double_bracket}     \tab    \code{`[[<-`}         \cr
 \code{dollar}                    \tab    \code{`$`}            \cr
 \code{at_sign}                   \tab    \code{`@`}            \cr
 \strong{Arithmetic operators}         \tab    \code{ }              \cr
