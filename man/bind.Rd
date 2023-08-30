@@ -39,23 +39,22 @@ The Greek letter
 is available as an alias for \code{bind()}.
 }
 \examples{
-if (getRversion() >= 4.1) {
+\dontshow{if (getRversion() >= 4.1) (if (getRversion() >= "3.4") withAutoprint else force)(\{ # examplesIf}
+# Piping to a non-first argument
+mtcars |>
+  transform(kmL = mpg / 2.35) |>
+  bind(d, lm(kmL ~ hp, data = d))
 
-  # Piping to a non-first argument
-  mtcars |>
-    transform(kmL = mpg / 2.35) |>
-    bind(d, lm(kmL ~ hp, data = d))
+# Using the piped value multiple times
+rnorm(10, mean = 10) |>
+  bind(x, x - mean(x))
 
-  # Using the piped value multiple times
-  rnorm(10, mean = 10) |>
-    bind(x, x - mean(x))
+# Using the piped value in multiple arguments
+c(a = 1, b = 2, c = 3) |>
+  bind(x, paste(names(x), x, sep = " = "))
 
-  # Using the piped value in multiple arguments
-  c(a = 1, b = 2, c = 3) |>
-    bind(x, paste(names(x), x, sep = " = "))
-
-  # Subsetting the piped value
-  mtcars |>
-    bind(d, d$mpg)
-}
+# Subsetting the piped value
+mtcars |>
+  bind(d, d$mpg)
+\dontshow{\}) # examplesIf}
 }
