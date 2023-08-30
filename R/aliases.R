@@ -1,5 +1,6 @@
 #' Pipe-able aliases
 #'
+#' @description
 #' pipebind provides several aliases for unary/binary operators (e.g., `+`)
 #' and replacement functions (e.g., `names<-()`) that facilitate using these
 #' functions in a `|>` chain.
@@ -10,34 +11,50 @@
 #'
 #' Currently implemented aliases are
 #' \tabular{ll}{
-#' \code{extract}            \tab \code{`[`}      \cr
-#' \code{extract2}           \tab \code{`[[`}     \cr
-#' \code{inset}              \tab \code{`[<-`}    \cr
-#' \code{inset2}             \tab \code{`[[<-`}   \cr
-#' \code{use_series}         \tab \code{`$`}      \cr
-#' \code{add}                \tab \code{`+`}      \cr
-#' \code{subtract}           \tab \code{`-`}      \cr
-#' \code{multiply_by}        \tab \code{`*`}      \cr
-#' \code{raise_to_power}     \tab \code{`^`}      \cr
-#' \code{multiply_by_matrix} \tab \code{`\%*\%`}  \cr
-#' \code{divide_by}          \tab \code{`/`}      \cr
-#' \code{divide_by_int}      \tab \code{`\%/\%`}  \cr
-#' \code{mod}                \tab \code{`\%\%`}   \cr
-#' \code{is_in}              \tab \code{`\%in\%`} \cr
-#' \code{and}                \tab \code{`&`}      \cr
-#' \code{or}                 \tab \code{`|`}      \cr
-#' \code{equals}             \tab \code{`==`}     \cr
-#' \code{is_greater_than}    \tab \code{`>`}      \cr
-#' \code{is_weakly_greater_than} \tab \code{`>=`} \cr
-#' \code{is_less_than}       \tab \code{`<`}      \cr
-#' \code{is_weakly_less_than}    \tab \code{`<=`} \cr
-#' \code{not} (\code{`n'est pas`})  \tab \code{`!`} \cr
-#' \code{assign_colnames}       \tab \code{`colnames<-`} \cr
-#' \code{assign_rownames}       \tab \code{`rownames<-`} \cr
-#' \code{assign_names}          \tab \code{`names<-`} \cr
-#' \code{assign_class}          \tab \code{`class<-`} \cr
-#' \code{assign_attributes}     \tab \code{`attributes<-`} \cr
-#' \code{assign_attr }          \tab \code{`attr<-`} \cr
+#' **Extract and replace elements** \tab    \code{ }              \cr
+#' \code{bracket}                   \tab    \code{`[`}            \cr
+#' \code{double_bracket}            \tab    \code{`[[`}           \cr
+#' \code{assign_bracket}            \tab    \code{`[<-`}          \cr
+#' \code{assign_double_bracket}     \tab    \code{`[<-`}          \cr
+#' \code{dollar}                    \tab    \code{`$`}            \cr
+#' \code{at_sign}                   \tab    \code{`@`}            \cr
+#' **Arithmetic operators**         \tab    \code{ }              \cr
+#' \code{add}                       \tab    \code{`+`}            \cr
+#' \code{subtract}                  \tab    \code{`-`}            \cr
+#' \code{multiply}                  \tab    \code{`*`}            \cr
+#' \code{divide}                    \tab    \code{`/`}            \cr
+#' \code{integer_divide}            \tab    \code{`\%/\%`}        \cr
+#' \code{mod}                       \tab    \code{`\%\%`}         \cr
+#' \code{raise_to_power}            \tab    \code{`^`}            \cr
+#' \code{matrix_multiply}           \tab    \code{`\%*\%`}        \cr
+#' **Logical comparisons**          \tab    \code{ }              \cr
+#' \code{and}                       \tab    \code{`&`}            \cr
+#' \code{or}                        \tab    \code{`|`}            \cr
+#' \code{not}                       \tab    \code{`!`}            \cr
+#' \code{single_and}                \tab    \code{`&&`}           \cr
+#' \code{single_or}                 \tab    \code{`||`}           \cr
+#' \code{equals}                    \tab    \code{`==`}           \cr
+#' \code{greater_than}              \tab    \code{`>`}            \cr
+#' \code{greater_or_equal}          \tab    \code{`>=`}           \cr
+#' \code{less_than}                 \tab    \code{`<`}            \cr
+#' \code{less_or_equal}             \tab    \code{`<=`}           \cr
+#' \code{is_in}                     \tab    \code{`\%in\%`}       \cr
+#' **Assign attributes**            \tab    \code{ }              \cr
+#' \code{assign_names}              \tab    \code{`names<-`}      \cr
+#' \code{assign_colnames}           \tab    \code{`colnames<-`}   \cr
+#' \code{assign_rownames}           \tab    \code{`rownames<-`}   \cr
+#' \code{assign_dimnames}           \tab    \code{`dimnames<-`}   \cr
+#' \code{assign_class}              \tab    \code{`class<-`}      \cr
+#' \code{assign_attributes}         \tab    \code{`attributes<-`} \cr
+#' \code{assign_attr}               \tab    \code{`attr<-`}       \cr
+#' \code{assign_levels}             \tab    \code{`levels<-`}     \cr
+#' \code{assign_contrasts}          \tab    \code{`contrasts<-`}  \cr
+#' \code{assign_units}              \tab    \code{`units<-`}      \cr
+#' \code{assign_comment}            \tab    \code{`comment<-`}    \cr
+#' \code{assign_diag}               \tab    \code{`diag<-`}       \cr
+#' \code{assign_dim}                \tab    \code{`dim<-`}        \cr
+#' \code{assign_length}             \tab    \code{`length<-`}     \cr
+#' \code{assign_as_na}              \tab    \code{`is.na<-`}      \cr
 #' }
 #'
 #' @note
@@ -54,18 +71,12 @@
 #'
 #'  1:10 |>
 #'    add(5) |>
-#'    matrix(dimnames = list(NULL, "x")) |>
+#'    matrix(dimnames = list(letters[1:10], "x")) |>
 #'    matrix_multiply(seq(10, 100, by = 10))
 #'
 #' data.frame(1:10, letters[1:10]) |>
 #'   assign_names(c("numbers", "letters"))
-#' good.times$quarter <-
-#'   good.times %>%
-#'   use_series(timestamp) %>%
-#'   format("%M") %>%
-#'   as.numeric %>%
-#'   divide_by_int(15) %>%
-#'   add(1)
+## Extract and replace elements
 bracket <- `[`
 
 #' @rdname aliases
@@ -76,13 +87,25 @@ double_bracket <- `[[`
 #' @rdname aliases
 #' @usage NULL
 #' @export
+assign_bracket <- `[<-`
+
+#' @rdname aliases
+#' @usage NULL
+#' @export
+assign_double_bracket <- `[[<-`
+
+#' @rdname aliases
+#' @usage NULL
+#' @export
 dollar <- `$`
 
 #' @rdname aliases
 #' @usage NULL
 #' @export
-at_sign <- pull_slot <- `@`
+at_sign <- `@`
 
+
+## Arithmetic operators
 #' @rdname aliases
 #' @usage NULL
 #' @export
@@ -96,33 +119,35 @@ subtract <- `-`
 #' @rdname aliases
 #' @usage NULL
 #' @export
-multiply_by <- `*`
+multiply <- `*`
 
 #' @rdname aliases
 #' @usage NULL
 #' @export
-multiply_by_matrix <-
-  matrix_multiply <-
-  `%*%`
-
+divide <- `/`
 
 #' @rdname aliases
 #' @usage NULL
 #' @export
-divide_by <- `/`
+integer_divide <- `%/%`
 
 #' @rdname aliases
 #' @usage NULL
 #' @export
-divide_by_int <- `%/%`
+mod <- `%%`
 
 #' @rdname aliases
 #' @usage NULL
 #' @export
-raise_to_power <-
-  raise_to <-
-  `^`
+raise_to_power <- `^`
 
+#' @rdname aliases
+#' @usage NULL
+#' @export
+matrix_multiply <- `%*%`
+
+
+## Logical comparisons
 #' @rdname aliases
 #' @usage NULL
 #' @export
@@ -136,12 +161,17 @@ or <- `|`
 #' @rdname aliases
 #' @usage NULL
 #' @export
-mod <- `%%`
+not <- `!`
 
 #' @rdname aliases
 #' @usage NULL
 #' @export
-is_in <- `%in%`
+single_and <- `&&`
+
+#' @rdname aliases
+#' @usage NULL
+#' @export
+single_or <- `||`
 
 #' @rdname aliases
 #' @usage NULL
@@ -151,29 +181,34 @@ equals <- `==`
 #' @rdname aliases
 #' @usage NULL
 #' @export
-is_greater_than <- `>`
+greater_than <- `>`
 
 #' @rdname aliases
 #' @usage NULL
 #' @export
-is_greater_or_equal <-
-  `>=`
+greater_or_equal <- `>=`
 
 #' @rdname aliases
 #' @usage NULL
 #' @export
-is_less_than <- `<`
+less_than <- `<`
 
 #' @rdname aliases
 #' @usage NULL
 #' @export
-is_less_or_equal <-
-  `<=`
+less_or_equal <- `<=`
 
 #' @rdname aliases
 #' @usage NULL
 #' @export
-not <- `!`
+is_in <- `%in%`
+
+
+## Assign attributes
+#' @rdname aliases
+#' @usage NULL
+#' @export
+assign_names <- `names<-`
 
 #' @rdname aliases
 #' @usage NULL
@@ -188,7 +223,7 @@ assign_rownames <- `rownames<-`
 #' @rdname aliases
 #' @usage NULL
 #' @export
-assign_names <- `names<-`
+assign_dimnames <- `dimnames<-`
 
 #' @rdname aliases
 #' @usage NULL
@@ -198,26 +233,12 @@ assign_class <- `class<-`
 #' @rdname aliases
 #' @usage NULL
 #' @export
-inset <-
-  assign_bracket <-
-  `[<-`
-
-#' @rdname aliases
-#' @usage NULL
-#' @export
-double_inset <-
-  assign_double_bracket <-
-  `[[<-`
+assign_attributes <- `attributes<-`
 
 #' @rdname aliases
 #' @usage NULL
 #' @export
 assign_attr <- `attr<-`
-
-#' @rdname aliases
-#' @usage NULL
-#' @export
-assign_attributes <- `attributes<-`
 
 #' @rdname aliases
 #' @usage NULL
@@ -228,16 +249,6 @@ assign_levels <- `levels<-`
 #' @usage NULL
 #' @export
 assign_contrasts <- `contrasts<-`
-
-#' @rdname aliases
-#' @usage NULL
-#' @export
-assign_dimnames <- `dimnames<-`
-
-#' @rdname aliases
-#' @usage NULL
-#' @export
-assign_as_missing <- `is.na<-`
 
 #' @rdname aliases
 #' @usage NULL
@@ -263,3 +274,8 @@ assign_dim <- `dim<-`
 #' @usage NULL
 #' @export
 assign_length <- `length<-`
+
+#' @rdname aliases
+#' @usage NULL
+#' @export
+assign_as_na <- `is.na<-`
