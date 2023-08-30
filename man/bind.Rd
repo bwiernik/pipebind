@@ -39,7 +39,6 @@ The Greek letter
 is available as an alias for \code{bind()}.
 }
 \examples{
-\dontshow{if (getRversion() >= 4.1) (if (getRversion() >= "3.4") withAutoprint else force)(\{ # examplesIf}
 # Piping to a non-first argument
 mtcars |>
   transform(kmL = mpg / 2.35) |>
@@ -56,5 +55,4 @@ c(a = 1, b = 2, c = 3) |>
 # Subsetting the piped value
 mtcars |>
   bind(d, d$mpg)
-\dontshow{\}) # examplesIf}
 }

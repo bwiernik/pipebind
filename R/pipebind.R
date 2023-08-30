@@ -30,7 +30,7 @@
 #'
 #' @export
 #'
-#' @examplesIf getRversion() >= 4.1
+#' @examples
 #' # Piping to a non-first argument
 #' mtcars |>
 #'   transform(kmL = mpg / 2.35) |>
