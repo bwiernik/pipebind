@@ -7,17 +7,24 @@
 <!-- badges: end -->
 
 The base R `|>` pipe lacks some advanced functionality compared to the
-`{magrittr}` `%>%` pipe. For example, the piped object can only appear
+`{magrittr}` `%>%` pipe. Most notably, the piped object can only appear
 once on the right-hand side of the pipe (either as the first unnamed
-argument or elsewhere using the `_` placeholder), and the `_`
-placeholder cannot appear on the left side of sub-setting functions like
-`$`, `[`, `[[`, or `@`.
+argument or elsewhere using the `_` placeholder) and cannot be used with
+some in-line functions (e.g., `+`).
+
+The `|>` pipe had additional limitations in earlier versions of R (e.g.,
+the `_` placeholder was not available before R 4.2.0; the `_`
+placeholder could not appear on the left side of sub-setting functions
+like `$`, `[`, `[[`, or `@` before R 4.3.0).
 
 This package provides a `bind()` function as a way to conveniently
 circumvent these limitations. Pipe an object into `bind()`, choose a
 placeholder symbol to represent it, then use this placeholder to refer
 the piped object in any way and as many times as desired in an R
 expression.
+
+The package also provides aliases for in-line functions like `+` and
+`%in%` to facilitate their use with the `|>` pipe.
 
 ## Installation
 
@@ -33,9 +40,7 @@ You can install the development version of `{pipebind}` like so:
 remotes::install_github("bwiernik/pipebind")
 ```
 
-## Example
-
-This is a basic example which shows you how to solve a common problem:
+## Examples
 
 ``` r
 library(pipebind)
