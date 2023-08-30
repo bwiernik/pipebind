@@ -248,7 +248,8 @@ assign_levels <- `levels<-`
 #' @rdname aliases
 #' @usage NULL
 #' @export
-assign_contrasts <- `contrasts<-`
+# This structure is needed to avoid a spurious dependency warning with 'methods'
+assign_contrasts <- function(x, how.many = NULL, value) stats::`contrasts<-`(x = x, how.many = how.many, value = value)
 
 #' @rdname aliases
 #' @usage NULL
@@ -258,7 +259,8 @@ assign_units <- `units<-`
 #' @rdname aliases
 #' @usage NULL
 #' @export
-assign_comment <- `comment<-`
+# This structure is needed to avoid a spurious warning about calling internals
+assign_comment <- function(x, value) `comment<-`(x, value)
 
 #' @rdname aliases
 #' @usage NULL
